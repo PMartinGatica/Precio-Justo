@@ -16,7 +16,7 @@ export class ProvinciasService {
   constructor(private http: HttpClient) { }  
   
   getProvincias() {
-    return this.http.get('./assets/api/ provincias.json').pipe(
+    return this.http.get('./assets/api/provincias.json').pipe(
       map((data: any) => {
         let respuesta = data.map((provincia: any ) => {
         return {
