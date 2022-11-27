@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ProvinciasService, Provincias } from '../../services/provincias.service';
 
-
 @Component({
   selector: 'app-provincias',
   templateUrl: './provincias.component.html',
