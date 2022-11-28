@@ -10,8 +10,9 @@ export class ProductosService {
 
   constructor(private http:HttpClient) { }
 
-  getProductos(slug:string){
-    return this.http.get('./assets/api/tierra-del-fuego.json')
+  getProductos(slugProvincia:string){
+    let url = './assets/api' + slugProvincia + '.json'
+    return this.http.get(url)
     .pipe(
       map((data:any)=>{
         data.values.shift()
