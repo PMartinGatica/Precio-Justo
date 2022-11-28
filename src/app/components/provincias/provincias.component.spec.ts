@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProvinciasComponent } from './provincias.component';
+import { Component,OnInit,ViewChild } from '@angular/core';
+import { ProvinciasService } from '../../services/provincias.service';
 
 describe('ProvinciasComponent', () => {
   let component: ProvinciasComponent;

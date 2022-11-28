@@ -21,9 +21,10 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot()
-    
+    RouterModule,
+    AppRoutingModule,
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })

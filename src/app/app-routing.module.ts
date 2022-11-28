@@ -7,6 +7,7 @@ import { ProvinciasComponent } from './components/provincias/provincias.componen
 import { ProductosComponent } from './components/productos/productos.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'provincias', pathMatch: 'full' },
   {path: 'provincias', component: ProvinciasComponent},
   {path: 'productos', component: ProductosComponent},
 
