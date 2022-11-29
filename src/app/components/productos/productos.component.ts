@@ -17,10 +17,11 @@ export interface Producto{
 })
 export class ProductosComponent implements OnInit {
   productos: Producto[] =[];
-  provinciaSlcd:string = 'Cordoba'
+  provinciaSlcd:string = '/cordoba'
 
   constructor(private productosSrv : ProductosService){
     productosSrv.getProductos(this.provinciaSlcd).subscribe((data:any)=>{
+      // console.log(data);
       this.productos = data;
     })
   }
