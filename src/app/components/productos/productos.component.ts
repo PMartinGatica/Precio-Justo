@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductosService } from 'src/app/services/productos.service';
+import { HttpClient } from '@angular/common/http';
 
 export interface Producto{
   ean:number;
@@ -16,9 +17,10 @@ export interface Producto{
 })
 export class ProductosComponent implements OnInit {
   productos: Producto[] =[];
+  provinciaSlcd:string = 'Cordoba'
 
   constructor(private productosSrv : ProductosService){
-    productosSrv.getProductos().subscribe((data:any)=>{
+    productosSrv.getProductos(this.provinciaSlcd).subscribe((data:any)=>{
       this.productos = data;
     })
   }
