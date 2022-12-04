@@ -17,11 +17,18 @@ export interface Producto{
 })
 export class ProductosComponent implements OnInit {
   productos: Producto[] =[];
-  provinciaSlcd:string = '/cordoba'
+  provinciaSlcd:string = '';
 
-  constructor(private productosSrv : ProductosService){
-    productosSrv.getProductos(this.provinciaSlcd).subscribe((data:any)=>{
-      // console.log(data);
+  constructor(
+    productosSrv : ProductosService,
+    actRoute: ActivatedRoute,
+
+    ) {
+
+    const {id} =actRoute.snapshot.params;
+    this.provinciaSlcd = id;
+
+    productosSrv.getProductos(id).subscribe((data:any)=>{
       this.productos = data;
     })
   }

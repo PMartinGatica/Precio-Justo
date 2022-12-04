@@ -5,11 +5,16 @@ import { Routes, RouterModule } from '@angular/router';
 // Components
 import { ProvinciasComponent } from './components/provincias/provincias.component';
 import { ProductosComponent } from './components/productos/productos.component';
+import { HomeComponent } from './components/home/home.component';
+import { P404Component } from './components/p404/p404.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'provincias', pathMatch: 'full' },
+  { path: '', component: HomeComponent },
+  { path: 'home',component: HomeComponent},
   {path: 'provincias', component: ProvinciasComponent},
+  {path: 'provincias/:id', component: ProvinciasComponent},
   {path: 'productos', component: ProductosComponent},
+  {path: '**', component: P404Component},
 
 ];
 
