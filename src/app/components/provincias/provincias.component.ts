@@ -25,7 +25,8 @@ export class ProvinciasComponent {
   } 
 
   handleOnClickButton(){
-    this.router.navigateByUrl(`/provincias/${this.provinciaSeleccionada.url}/productos`);
+    this.router.navigateByUrl(`provincias/${this.provinciaSeleccionada.url}/productos`);
+    console.log(this.provinciaSeleccionada);
   //   this.router.navigateByUrl(
   //     '/provincias/${this.provinciaSeleccionada.api}/productos'    
   // );

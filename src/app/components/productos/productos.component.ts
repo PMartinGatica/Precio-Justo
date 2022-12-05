@@ -26,11 +26,12 @@ export class ProductosComponent implements OnInit {
     ) {
 
     const {id} =actRoute.snapshot.params;
-    this.provinciaSlcd = id;
+    //this.provinciaSlcd = id;
 
     productosSrv.getProductos(id).subscribe((data:any)=>{
       this.productos = data;
     })
+    console.log(this.provinciaSlcd);
   }
 
   ngOnInit(): void {

@@ -1,8 +1,9 @@
 <div class="title text-center">
-    <h1> Precios Justos</h1>
+    <h1>¿Conoces los productos?</h1>
 </div>
 <div class="row p-3">
     <div class="col text-center">
+        <h2 class="fw-bold mb-3">¿En qué provincia o región vivís?</h2>
         <select name="Provincias" id="" [(ngModel)]="provinciaSeleccionada">
             <option value="">Seleccione una provincia</option>
             <option *ngFor="let provincia of provincias" [ngValue]="provincia">{{provincia.nombre}}</option>

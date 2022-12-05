@@ -1,0 +1,31 @@
+.redes-sociales {
+	padding: 40px 0;
+	margin-bottom: 40px;
+}
+
+.redes-sociales .icono {
+	width: 100px;
+	height: 100px;
+	color: #fff;
+	background: #cbcbcb;
+	display: inline-block;
+	margin: 0px 20px;
+	text-decoration: none;
+	border-radius: 100px;
+	transition: all .3s ease;
+}
+
+.redes-sociales .icono svg {
+	width: 40px;
+	height: 40px;
+}
+
+.redes-sociales .twitter {background: #1da1f2;}
+.redes-sociales .instagram {background: #833ab4;}
+.redes-sociales .in {background: grey;}
+.redes-sociales .facebook {background: #3b5998;}
+
+footer {
+	background: #003855;
+    color: white;
+}
