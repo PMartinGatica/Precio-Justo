@@ -1,36 +1,50 @@
-import { Component } from '@angular/core';
-import { ProvinciasService, Provincias } from '../../services/provincias.service';
+import { Component, OnInit } from '@angular/core';
+import { ProvinciasService} from '../../services/provincias.service';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
+
+export interface Provincias{
+  id:number,
+  nombre:string,
+  url:string,
+}
 @Component({
   selector: 'app-provincias',
   templateUrl: './provincias.component.html',
   styleUrls: ['./provincias.component.css']
 })
-export class ProvinciasComponent {
+export class ProvinciasComponent implements OnInit {
 
   
   provincias : Provincias[] =[
   ];
 
-  provinciaSeleccionada: Provincias = {nombre: '', id: 0, url: ''};
+  provinciaSeleccionada: Provincias = { id: 0,nombre: '', url: ''};
 
   constructor( 
-    private provinciasService : ProvinciasService,
-    private router: Router) { 
-    this.provinciasService.getProvincias().subscribe((data: any) => {
+    provServ : ProvinciasService,
+    private router: Router,
+    
+    private location : Location) { 
+    provServ.getProvincias().subscribe((data: any) => {
       console.log(data);
       this.provincias = data;
     });
   } 
 
-  handleOnClickButton(){
-    this.router.navigateByUrl(`provincias/${this.provinciaSeleccionada.url}/productos`);
-    console.log(this.provinciaSeleccionada);
-  //   this.router.navigateByUrl(
-  //     '/provincias/${this.provinciaSeleccionada.api}/productos'    
-  // );
-  };
+  handleOnClickButton() {
+    this.router.navigateByUrl(
+      `/provincias/${this.provinciaSeleccionada.nombre
+        .toLowerCase()
+        .replace(/ /g, '-')}/productos`
+    );
+    /* console.log(this.provinciaSlctd);
+
+    this.router.navigateByUrl(
+      `/provincias/${this.provinciaSlctd.url}/productos`
+    ); */
+  }
   
   ngOnInit() {
   }

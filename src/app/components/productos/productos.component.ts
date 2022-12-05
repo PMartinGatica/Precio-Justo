@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute} from '@angular/router';
 import { ProductosService } from 'src/app/services/productos.service';
-import { HttpClient } from '@angular/common/http';
+import { Location } from '@angular/common';
+
 
 export interface Producto{
   ean:number;
-  nombre:number;
+  nombre:string;
   precio:number;
 }
 
@@ -17,21 +17,25 @@ export interface Producto{
 })
 export class ProductosComponent implements OnInit {
   productos: Producto[] =[];
-  provinciaSlcd:string = '';
+  provinciaSlcd:string = 'jujuy';
 
   constructor(
     productosSrv : ProductosService,
     actRoute: ActivatedRoute,
+    private location : Location,
 
     ) {
 
-    const {id} =actRoute.snapshot.params;
-    //this.provinciaSlcd = id;
+    const {nombreProvincia} =actRoute.snapshot.params;
+    this.provinciaSlcd = nombreProvincia;
 
-    productosSrv.getProductos(id).subscribe((data:any)=>{
+    productosSrv.getProductos(nombreProvincia).subscribe((data:any)=>{
       this.productos = data;
     })
-    console.log(this.provinciaSlcd);
+  }
+
+  goBack() {
+    this.location.back();
   }
 
   ngOnInit(): void {

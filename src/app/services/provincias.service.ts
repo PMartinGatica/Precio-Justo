@@ -3,11 +3,6 @@ import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
 
 
-export interface Provincias{
-  id:number,
-  nombre:string,
-  url:string,
-}
 
 @Injectable({
   providedIn: 'root'
