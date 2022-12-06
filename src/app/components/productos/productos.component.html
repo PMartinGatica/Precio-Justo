@@ -1,16 +1,29 @@
 <!-- productos -->
 <h1>Provincia Seleccionada {{provinciaSlcd}}</h1>
 
-<div class="container">
-    <div class="row">
-        <div class="col">
-        <div *ngFor = 'let producto of productos' class="col card mb-2">
-            <div class="card-body">
-                <h5 class="card-title">{{producto.nombre}}</h5>
-                <h5 class="card-subtitle mb-2 text-muted">{{producto.ean}}</h5>
-                <p class="card-text">{{producto.precio}}</p>
-            </div>
-        </div>
-    </div>
-    </div>            
-</div>
+<label for="exampleDataList" class="form-label">Buscar</label>
+<input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Nombre del producto...">
+<datalist id="datalistOptions">
+  <option value="San Francisco">
+  <option value="New York">
+  <option value="Seattle">
+  <option value="Los Angeles">
+  <option value="Chicago">
+</datalist>
+
+<table class="table table-hover">
+    <thead>
+      <tr class="table-hover">
+        <th scope="col">Producto</th>
+        <th scope="col">Ean</th>
+        <th scope="col">Precio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = 'let producto of productos'>
+        <td>{{producto.nombre}}</td>
+        <td>{{producto.ean}}</td>
+        <td>{{producto.precio}}</td>
+      </tr>
+    </tbody>
+  </table>
