@@ -11,7 +11,7 @@ export class ProductosService {
   constructor(private http:HttpClient) { }
 
   getProductos(provincia:string) {
-    return this.http.get('./assets/api/' + provincia +'.json')
+    return this.http.get('./assets/api/' + provincia)
       .pipe(
         map((data: any) => {
           // aca transformo datos

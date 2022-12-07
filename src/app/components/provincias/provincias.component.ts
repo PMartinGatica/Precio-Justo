@@ -33,16 +33,16 @@ export class ProvinciasComponent implements OnInit {
   } 
 
   handleOnClickButton() {
-    this.router.navigateByUrl(
-      `/provincias/${this.provinciaSeleccionada.nombre
-        .toLowerCase()
-        .replace(/ /g, '-')}/productos`
-    );
-    /* console.log(this.provinciaSlctd);
+    // this.router.navigateByUrl(
+    //   `/provincias/${this.provinciaSeleccionada.nombre
+    //     .toLowerCase()
+    //     .replace(/ /g, '-')}/productos`
+    // );
+  
 
     this.router.navigateByUrl(
-      `/provincias/${this.provinciaSlctd.url}/productos`
-    ); */
+      `/provincias/${this.provinciaSeleccionada.url}/productos`
+    ); 
   }
   
   ngOnInit() {
