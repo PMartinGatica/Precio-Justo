@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
+import {MatTableModule} from '@angular/material/table';
+import{MatPaginatorModule} from '@angular/material/paginator';
 
 import { AppComponent } from './app.component';
 import { ProvinciasComponent } from './components/provincias/provincias.component';
@@ -12,6 +14,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './components/header/header.component';
 import { P404Component } from './components/p404/p404.component';
 import { HomeComponent } from './components/home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSortModule} from '@angular/material/sort';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -29,6 +35,12 @@ import { HomeComponent } from './components/home/home.component';
     FormsModule,
     RouterModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
 
   providers: [],

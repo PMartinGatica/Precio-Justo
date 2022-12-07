@@ -3,3 +3,14 @@
     background-color: #666;
     color: white;
 }
+
+.provinciaSeleccionada{
+   font-weight: bold;
+     
+}
+
+.btn{
+    margin: 10px;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+}

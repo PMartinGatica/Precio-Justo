@@ -1,29 +1,38 @@
 <!-- productos -->
 <h1>Provincia Seleccionada {{provinciaSlcd}}</h1>
 
-<label for="exampleDataList" class="form-label">Buscar</label>
-<input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Nombre del producto...">
-<datalist id="datalistOptions">
-  <option value="San Francisco">
-  <option value="New York">
-  <option value="Seattle">
-  <option value="Los Angeles">
-  <option value="Chicago">
-</datalist>
+  <div class="container">
 
-<table class="table table-hover">
-    <thead>
-      <tr class="table-hover">
-        <th scope="col">Producto</th>
-        <th scope="col">Ean</th>
-        <th scope="col">Precio</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor = 'let producto of productos'>
-        <td>{{producto.nombre}}</td>
-        <td>{{producto.ean}}</td>
-        <td>{{producto.precio}}</td>
-      </tr>
-    </tbody>
-  </table>
+    <mat-form-field>
+      <mat-label>Filtro</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Buscar" #input autocomplete="off">
+    </mat-form-field>
+    
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+        <td mat-cell *matCellDef="let producto"> {{producto.nombre}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="ean">
+        <th mat-header-cell *matHeaderCellDef> Ean </th>
+        <td mat-cell *matCellDef="let producto"> {{producto.ean}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="precio">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Precio </th>
+        <td mat-cell *matCellDef="let producto"> {{producto.precio}} </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+    aria-label="Select page of periodic elements">
+</mat-paginator>
+    
+    
+  </div>

@@ -28,7 +28,6 @@ export class ProvinciasComponent implements OnInit {
     
     private location : Location) { 
     provServ.getProvincias().subscribe((data: any) => {
-      console.log(data);
       this.provincias = data;
     });
   } 
