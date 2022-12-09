@@ -12,25 +12,20 @@ export class ProvinciasService {
   
   getProvincias() {
     return this.http.get('./assets/api/provincias.json').pipe(
-      map((data: any) => {
-        let respuesta = data.map((provincia: any ) => {
-        // return {
-        //   nombre: provincia.nombre,
-        //   id: provincia.id,
-        //   url: provincia.api,
-        // };
-        let aux = {
-          ...provincia,
-          url:provincia.api,
-      };
-
-      delete aux.api;
-      return aux;
-    });
-      return respuesta;
-    })
+      map ((data: any) => {
+        let respuesta = data.map ((provincia: any) => {
+          return {
+            nombre: provincia.nombre, 
+            id: provincia.id,               
+            url: provincia.api,    
+          };
+        });
+        // console.log(respuesta);        
+        return respuesta;
+      })
     );
-  }
+  } 
 }
+
 
 

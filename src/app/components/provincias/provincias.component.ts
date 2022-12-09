@@ -23,26 +23,26 @@ export class ProvinciasComponent implements OnInit {
   provinciaSeleccionada: Provincias = { id: 0,nombre: '', url: ''};
 
   constructor( 
-    provServ : ProvinciasService,
+    private provServ : ProvinciasService,
     private router: Router,
     
     private location : Location) { 
-    provServ.getProvincias().subscribe((data: any) => {
+    this.provServ.getProvincias().subscribe((data: any) => {
       this.provincias = data;
     });
   } 
 
   handleOnClickButton() {
-    // this.router.navigateByUrl(
-    //   `/provincias/${this.provinciaSeleccionada.nombre
-    //     .toLowerCase()
-    //     .replace(/ /g, '-')}/productos`
-    // );
+    this.router.navigateByUrl(
+      `/provincias/${this.provinciaSeleccionada.nombre
+        .toLowerCase()
+        .replace(/ /g, '-')}/productos`
+    );
   
 
-    this.router.navigateByUrl(
-      `/provincias/${this.provinciaSeleccionada.url}/productos`
-    ); 
+    // this.router.navigateByUrl(
+    //   `/provincias/${this.provinciaSeleccionada.url}/productos`
+    // ); 
   }
   
   ngOnInit() {
